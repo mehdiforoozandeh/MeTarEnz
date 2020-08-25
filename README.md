@@ -13,15 +13,15 @@ MeTarEnz (metagenomic targeted enzyme miner) is a multi-service software that en
 Firstly, to use MeTarEnz’s pre-built Docker image, you must have docker software installed (https://docs.docker.com/engine/install/). 
 To download the MeTarEnz image, run the following command:
 
-"docker pull mforooz/metarenz"
+'docker pull mforooz/metarenz'
 
 After pulling the image, you can run MeTarEnz through the command below:
 
-"docker run -ti --entrypoint "" mforooz/metarenz python metarenz.py"
+'docker run -ti --entrypoint "" mforooz/metarenz python metarenz.py'
 
 Or you can run a general test to check if it works fine by the following command:
 
-"docker run -ti --entrypoint "" mforooz/metarenz python test.py"
+'docker run -ti --entrypoint "" mforooz/metarenz python test.py'
 
 For more detailed instructions on how to use docker images, containers, etc. please read the Docker documentation (https://docs.docker.com/).				
 
@@ -38,9 +38,9 @@ Throughout this section, it is assumed that the MeTarEnz is executed from its ma
 **MeTarEnz can also be executed interactively with -int or --interactive.**
 
 
-"./metarenz --interactive" (from the same directory of the standalone version)
-"python metarenz.py --interactive" (from the same directory of the python package version)
-"""docker run -ti --entrypoint "" mforooz/metarenz python metarenz.py"""  --interactive(docker image)
+'./metarenz --interactive' (from the same directory of the standalone version)
+'python metarenz.py --interactive' (from the same directory of the python package version)
+'''docker run -ti --entrypoint "" mforooz/metarenz python metarenz.py'''  --interactive(docker image)
 
 
 In the usage guide below, for the non-interactive execution of MeTarEnz, arguments are separated with space. Figure 2 summarizes MeTarEnz’s different functions, inputs, and user-defined parameters. 
