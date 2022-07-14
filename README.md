@@ -49,6 +49,9 @@ In the usage guide below, for the non-interactive execution of MeTarEnz, argumen
 
 *Figure 2: Summary of Functions. This figure illustrates MeTarEnz’s different services, inputs, parameters, etc.*
 
+
+
+
 Citation: 
 
 "Shahraki, Mehdi F., et al. "A computational learning paradigm to targeted discovery of biocatalysts from metagenomic data: A case study of lipase identification." Biotechnology and Bioengineering 119.4 (2022): 1115-1128."
