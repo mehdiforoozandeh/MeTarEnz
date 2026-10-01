@@ -23,6 +23,8 @@ Or you can run a general test to check if it works fine by the following command
 
 `docker run -ti --entrypoint "" mforooz/metarenz python test.py`
 
+The image includes `procps` (`ps`), so it works inside Nextflow and other workflow managers. The [Dockerfile](Dockerfile) shows how it is built. Singularity/Apptainer users can convert it with `singularity pull docker://mforooz/metarenz`.
+
 For more detailed instructions on how to use docker images, containers, etc. please read the Docker documentation (https://docs.docker.com/).				
 
 ### Standalone Toolkit
@@ -55,3 +57,7 @@ In the usage guide below, for the non-interactive execution of MeTarEnz, argumen
 Citation: 
 
 "Shahraki, Mehdi F., et al. "A computational learning paradigm to targeted discovery of biocatalysts from metagenomic data: A case study of lipase identification." Biotechnology and Bioengineering 119.4 (2022): 1115-1128."
+
+## License
+
+MeTarEnz is released under the [MIT License](LICENSE).
