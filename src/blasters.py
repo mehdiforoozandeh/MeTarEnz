@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from tools import tool
 
 
 info = """
@@ -11,15 +12,15 @@ with NCBI's BLASTp and BLASTx tools + BLAST DB maker.
 
 
 def makedb(fastaname):
-	os.system('./makeblastdb -dbtype prot -in '+ str(fastaname)+ ' -out temp/db.fasta') 
+	os.system(tool('makeblastdb') + ' -dbtype prot -in '+ str(fastaname)+ ' -out temp/db.fasta') 
  
 def blastx(queryfile, database, outfile):
-    blast_options = './blastx -outfmt "10 qseqid qlen length sseqid qseq pident evalue bitscore"'
+    blast_options = tool('blastx') + ' -outfmt "10 qseqid qlen length sseqid qseq pident evalue bitscore"'
     command = str(blast_options + ' -query ' + queryfile + ' -db ' + database + ' -out ' + outfile)
     os.system(command)
     
 def blastp(queryfile, database, outfile):
-    blast_options = './blastp -outfmt "10 qseqid qlen length sseqid qseq pident evalue bitscore"'
+    blast_options = tool('blastp') + ' -outfmt "10 qseqid qlen length sseqid qseq pident evalue bitscore"'
     command = str(blast_options + ' -query ' + queryfile + ' -db ' + database + ' -out ' + outfile)
     os.system(command)
     

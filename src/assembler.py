@@ -2,6 +2,7 @@ import sys
 import os
 import shutil
 import subprocess
+from tools import tool
 cdp=os.getcwd()
 
 def sra2fq(inp, outp):
@@ -34,7 +35,7 @@ def single_assembly(inp, outp, n_threads, min_cont_len):
         shutil.rmtree('temp/Assembly_results/'+ outp)
         
     outp = 'temp/Assembly_results/' + outp
-    command = "./megahit -r {} --k-list 27,37,47,57,67,77,87 --min-contig-len {} -t {} -o {}".format(inp, min_cont_len, n_threads, outp)
+    command = "{} -r {} --k-list 27,37,47,57,67,77,87 --min-contig-len {} -t {} -o {}".format(tool('megahit'), inp, min_cont_len, n_threads, outp)
     subprocess.check_call(command, shell=True)
     
 def paired_assembly(inp1, inp2, outp, n_threads, min_cont_len):
@@ -45,7 +46,7 @@ def paired_assembly(inp1, inp2, outp, n_threads, min_cont_len):
         shutil.rmtree('temp/Assembly_results/'+ outp)
         
     outp = 'temp/Assembly_results/' + outp
-    command = "./megahit -1 {} -2 {} --k-list 27,37,47,57,67,77,87 --min-contig-len {} -t {} -o {}".format(inp1, inp2, min_cont_len, n_threads, outp)
+    command = "{} -1 {} -2 {} --k-list 27,37,47,57,67,77,87 --min-contig-len {} -t {} -o {}".format(tool('megahit'), inp1, inp2, min_cont_len, n_threads, outp)
     subprocess.check_call(command, shell=True)
 
 def from_sra_to_cont(inp_name, out_name=None, QC=True, n_threads=1, min_cont_len=300):
