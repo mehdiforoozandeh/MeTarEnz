@@ -2,7 +2,22 @@ import multiprocessing
 multiprocessing.freeze_support()
 import warnings, sys, os
 warnings.filterwarnings("ignore")
-import assembler, screener, blasters, PredNGn
+import assembler, screener, blasters
+
+# Lipase optima prediction needs scikit-learn, the featgen package and the
+# Models/ directory. Screening does not, so a missing PredNGn only fails once
+# a prediction is actually requested.
+try:
+    import PredNGn
+except ImportError as import_error:
+    class _PredNGnUnavailable(object):
+        def __init__(self, reason):
+            self.reason = reason
+
+        def __getattr__(self, name):
+            raise ImportError('Lipase optima prediction is unavailable: ' + self.reason)
+
+    PredNGn = _PredNGnUnavailable(str(import_error))
 import numpy as np
 import pandas as pd
 
